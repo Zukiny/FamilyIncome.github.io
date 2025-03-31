@@ -11,10 +11,18 @@
     <div class="container">
         <h1>Family Income Distribution</h1>
         <input type="file" id="csvFileInput" accept=".csv">
-        <button onclick="processCSV()">Upload and Process</button>
-        <canvas id="barChart"></canvas>
-        <canvas id="pieChart"></canvas>
-        <button onclick="exportProcessedCSV()">Export CSV</button>
+        <button onclick="processCSV()">Process CSV</button>
+        <div class="charts">
+            <div class="chart-container large">
+                <h2>Bar Chart</h2>
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="chart-container small">
+                <h2>Pie Chart</h2>
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+        <button onclick="exportData()">Export Data</button>
     </div>
     <script src="script.js"></script>
 </body>
