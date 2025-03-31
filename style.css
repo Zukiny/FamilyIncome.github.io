@@ -2,47 +2,26 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #f4f4f4;
-    padding: 20px;
+    margin: 20px;
 }
 
 .container {
+    max-width: 800px;
+    margin: auto;
     background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: auto;
 }
 
-input, button {
+button {
     margin: 10px;
-    padding: 10px;
+    padding: 10px 15px;
     font-size: 16px;
+    cursor: pointer;
 }
 
-.charts {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-    flex-wrap: wrap;
+canvas {
+    max-width: 100%;
     margin-top: 20px;
-}
-
-.chart-container {
-    background: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-.chart-container.bar-chart {
-    width: 450px;  /* Smaller but still readable */
-    height: 300px; /* Adjusted for proportion */
-}
-
-.chart-container.pie-chart {
-    width: 300px;  /* Kept small */
-    height: 300px;
 }
