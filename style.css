@@ -10,7 +10,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 900px;
+    max-width: 800px;
     margin: auto;
 }
 
@@ -38,11 +38,11 @@ input, button {
 }
 
 .chart-container.bar-chart {
-    width: 600px;  /* Fixed width */
-    height: 400px; /* Fixed height */
+    width: 450px;  /* Smaller but still readable */
+    height: 300px; /* Adjusted for proportion */
 }
 
 .chart-container.pie-chart {
-    width: 350px;  /* Fixed width */
-    height: 350px; /* Fixed height */
+    width: 300px;  /* Kept small */
+    height: 300px;
 }
