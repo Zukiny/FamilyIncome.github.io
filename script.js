@@ -1,5 +1,4 @@
 let incomeData = {};
-let barChart, pieChart;
 
 function processCSV() {
     const fileInput = document.getElementById("csvFileInput");
@@ -40,74 +39,28 @@ function generateCharts() {
     const labels = Object.keys(incomeData);
     const data = Object.values(incomeData);
 
-    if (barChart) barChart.destroy();
-    if (pieChart) pieChart.destroy();
-
-    // Bar Chart (Larger)
-    barChart = new Chart(document.getElementById("barChart"), {
+    // Bar Chart
+    new Chart(document.getElementById("barChart"), {
         type: "bar",
         data: {
             labels: labels,
-            datasets: [{
-                label: "Number of Students",
-                data: data,
-                backgroundColor: "blue"
-            }]
+            datasets: [{ label: "Students", data: data, backgroundColor: "blue" }]
         },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
+        options: { responsive: true }
     });
 
-    // Pie Chart (Smaller)
-    pieChart = new Chart(document.getElementById("pieChart"), {
+    // Pie Chart
+    new Chart(document.getElementById("pieChart"), {
         type: "pie",
         data: {
             labels: labels,
-            datasets: [{
-                data: data,
-                backgroundColor: ["red", "blue", "green", "yellow", "purple"]
-            }]
+            datasets: [{ data: data, backgroundColor: ["red", "blue", "green", "yellow", "purple"] }]
         },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false
-        }
+        options: { responsive: true }
     });
 }
 
-function exportData() {
-    const choice = prompt("Choose an option:\n1 - Download Bar Chart (PNG)\n2 - Download Pie Chart (PNG)\n3 - Download CSV File");
-
-    switch (choice) {
-        case "1":
-            downloadChart(barChart, "Bar_Chart.png");
-            break;
-        case "2":
-            downloadChart(pieChart, "Pie_Chart.png");
-            break;
-        case "3":
-            exportCSV();
-            break;
-        default:
-            alert("Invalid choice. Please enter 1, 2, or 3.");
-    }
-}
-
-function downloadChart(chart, filename) {
-    const link = document.createElement("a");
-    link.href = chart.toBase64Image();
-    link.download = filename;
-    link.click();
-}
-
-function exportCSV() {
+function exportProcessedCSV() {
     let csvContent = "Family_Income_Level,Count\n";
     for (const [key, value] of Object.entries(incomeData)) {
         csvContent += `${key},${value}\n`;
